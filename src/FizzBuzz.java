@@ -3,6 +3,10 @@ import java.util.Scanner;
 public class FizzBuzz {
 
 	public static void main(String[] args) {
+		final int FIZZ = 3;														// Create final variables
+		final int BUZZ = 5;
+//		final int FUZZ = 7;														// Future use
+		
 		Scanner scan = new Scanner(System.in); 									// Instantiate Scanner
 		System.out.print("Welcome to FizzBuzz! How high should we count? ");	// Prompt for input
 		int number = 0;															// Initialize variable
@@ -16,13 +20,16 @@ public class FizzBuzz {
 		scan.close();															// Close Scanner
 		
 		for (int i = 1; i <= number; i++) {										// Start counting at 1
-			if(i % 3 == 0)														// Check for multiple of 3
-				System.out.print("Fizz");
-			if(i % 5 == 0)														// Check for multiple of 5
-				System.out.print("Buzz");
-			if(i % 3 != 0 && i % 5 != 0)										// Print a number by default
-				System.out.print(i);
-			System.out.println();												// New line
+			String output = "";
+			if(i % FIZZ == 0)													// Check for Fizz
+				output += "Fizz";
+			if(i % BUZZ == 0)													// Check for Buzz
+				output += "Buzz";
+//			if(i % FUZZ == 0)													// Check for Fuzz (future use)
+//				output += "Fuzz";
+			if(output.isEmpty())												// Print a number by default
+				output = String.valueOf(i);
+			System.out.println(output);											// New line
 		}
 		
 		System.out.println("That was fun!");									// Program end
